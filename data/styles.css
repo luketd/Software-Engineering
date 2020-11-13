@@ -14,7 +14,17 @@
 }
 .box_3 {
 }
+.image {
+}
+.placeholder {
+}
 .button {
+}
+.primary_button {
+  color:#FFFFFF;
+}
+.link_button {
+  color:#169BD5;
 }
 .heading_1 {
   font-family:'Arial', sans-serif;
@@ -75,6 +85,11 @@
 .droplist {
   color:#000000;
   text-align:left;
+}
+.tree_node {
+  text-align:left;
+}
+.table_cell {
 }
 .form_hint {
   color:#999999;
