@@ -1,4 +1,18 @@
-﻿
+﻿<?php
+$servername = "localhost";
+$username = "root";
+$password2 = "";
+$dbname = "software";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password2,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start()
+?> 
 
 
 <html>
@@ -77,7 +91,7 @@
 					<head>
 					</head>		
 
-
+          <br><br>
 					<form action="logincheck.php" method="post">
 					  <div class="imgcontainer">
 					  </div>
@@ -126,7 +140,18 @@
       <div id="u9" class="ax_default heading_3">
         <div id="u9_div" class=""></div>
         <div id="u9_text" class="text ">
-          <p><span>Enter your Email and Password</span></p><p><span>to schedule a donation</span></p>
+          <p><span>Enter your Email and Password</span></p><p><span>to schedule a donation <br> 
+          
+          <?PHP
+          if ($_SESSION['Login Fail'] == 1)    {
+            echo "<i><p style=color:red; font-size:8px;>";
+               echo "You entered your Email or Password inccorectly"; 
+            echo "</i></p>";
+          }      
+          
+          ?>
+          
+          </span></p>
         </div>
       </div>
     </div>

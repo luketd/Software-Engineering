@@ -33,6 +33,9 @@ $phonenumber= isset($_POST['phonenumber']) ? $_POST['phonenumber'] : "";
 $contactmethod= isset($_POST['contactmethod']) ? $_POST['contactmethod'] : "";
 
 
+
+$_SESSION['zip'] = $zipcode;
+
 if(empty($suite)){
 	$suite="0";
 }

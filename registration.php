@@ -1,4 +1,21 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$servername = "localhost";
+$username = "root";
+$password2 = "";
+$dbname = "software";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password2,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start()
+?> 
+
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Registration</title>
@@ -113,6 +130,32 @@
             <div class="imgcontainer">
             </div>
             <div style = "position: relative; left:415px; top:350px; font-size: 20px">
+            <p>
+                  <?PHP
+                if ($_SESSION['Same Email'] == 1)    {
+                  echo "<i><p style=color:red; font-size:8px;>";
+                    echo "The Email you entered is already registered"; 
+                  echo "</i></p>";
+                } 
+                if ($_SESSION['pass'] == 1 ){
+                  echo "<i><p style=color:red; font-size:8px;>";
+                    echo "Your password requires one Uppercase Letter,<br>a Number, a Special Character, and atleast 8 characters long"; 
+                  echo "</i></p>";
+
+                }
+                if ($_SESSION['wrong'] == 1 ){
+                  echo "<i><p style=color:red; font-size:8px;>";
+                    echo "Your passwords must be the same"; 
+                  echo "</i></p>";
+
+                }    
+                
+                ?>
+
+            </p>
+
+
+            <br><br>
               <p>
                   <label for="uname"><b>Email</b></label>
             <p> 

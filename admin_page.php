@@ -1,4 +1,21 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$servername = "localhost";
+$username = "root";
+$password2 = "";
+$dbname = "software";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password2,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start()
+?> 
+
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Admin page</title>
@@ -46,6 +63,9 @@
     </script>
   </head>
   <body>
+
+
+
     <div id="base" class="">
 
       <!-- Unnamed (Rectangle) -->
@@ -90,7 +110,65 @@
       <div id="u41" class="ax_default heading_1">
         <div id="u41_div" class=""></div>
         <div id="u41_text" class="text ">
-          <p><span>Admin Portal</span></p>
+          <p><span>Admin Portal
+          
+          </span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u29" class="ax_default heading_3">
+        <div id="u29_div" class=""></div>
+        <div id="u29_text" class="text ">
+          <p><span>Please fill out all required fields (marked with *)</span></p><p><span>Once you fill out everything on the form, then click the submit form button to move onto the next page</span></p>
+          <?PHP 
+          $filltable = "Select updatepickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID  inner join updatepickup on updatepickup.ID=forms.ID;";;
+          
+          echo '<table border="0" cellspacing="2" cellpadding="2"> 
+                  <tr> 
+                      <td> <font face="Arial">Date of Pickup</font> </td> 
+                      <td> <font face="Arial">User ID</font> </td> 
+                      <td> <font face="Arial">First Name</font> </td> 
+                      <td> <font face="Arial">Last Name</font> </td> 
+                      <td> <font face="Arial">City</font> </td> 
+                      <td> <font face="Arial">Zip Code</font> </td> 
+                      <td> <font face="Arial">Address</font> </td> 
+                      <td> <font face="Arial">Phone #</font> </td> 
+                      <td> <font face="Arial">Size</font> </td> 
+                      <td> <font face="Arial">Where</font> </td> 
+                  </tr>';
+
+            if ($result = $conn->query($filltable)) {
+                while ($row =  mysqli_fetch_array($result)) {
+                    $field1name = $row[0];
+                    $field2name = $row[1];
+                    $field3name = $row[2];
+                    $field4name = $row[3];
+                    $field5name = $row[4]; 
+                    $field6name = $row[5];
+                    $field7name = $row[6];
+                    $field8name = $row[7];
+                    $field9name = $row[8];
+                    $field10name = $row[9]; 
+
+                    echo '<tr> 
+                              <td>'.$field1name.'</td> 
+                              <td>'.$field2name.'</td> 
+                              <td>'.$field3name.'</td> 
+                              <td>'.$field4name.'</td> 
+                              <td>'.$field5name.'</td> 
+                              <td>'.$field6name.'</td> 
+                              <td>'.$field7name.'</td> 
+                              <td>'.$field8name.'</td> 
+                              <td>'.$field9name.'</td> 
+                              <td>'.$field10name.'</td> 
+                          </tr>';
+                }
+                $result->free();
+            } 
+            ?>
+            </p>
+
         </div>
       </div>
 
@@ -102,14 +180,14 @@
         </div>
       </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u43" class="ax_default box_1">
-        <div id="u43_div" class=""></div>
-        <div id="u43_text" class="text " style="display:none; visibility: hidden">
-          <p></p>
-        </div>
-      </div>
     </div>
+    <p>
+    
+
     <script src="resources/scripts/axure/ios.js"></script>
+
+
+    
   </body>
+  
 </html>

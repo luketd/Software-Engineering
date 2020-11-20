@@ -15,7 +15,6 @@ if ($conn->connect_error) {
 
 $rand = rand (1000,  10000 );
 $_SESSION['rand'] = $rand;
-echo $_SESSION['rand'];
 
 ?>       
 <!DOCTYPE html>
@@ -284,7 +283,7 @@ echo $_SESSION['rand'];
             <p>
             <p>
                   <label for="prefcontact"><b>* Preferred Contact Method</b></label>
-                  <select> name="contactmethod" id="contactmethod">
+                  <select name="contactmethod" id="contactmethod">
                     <option value="phone">Phone</option>
                     <option value="email">Email</option>
                   </select>

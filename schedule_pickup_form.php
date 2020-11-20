@@ -1,4 +1,23 @@
-﻿<!DOCTYPE html>
+﻿<?php session_start()  ?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "software";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+?>
+
+
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Schedule Pickup Form</title>
@@ -146,15 +165,30 @@
             <div style = "position: relative; text-align: right; left:250px; top:250px; font-size: 20px">
             <!-- Pickup Date List (Droplist) -->
             <p>
-                  <label for="pickupdate"><b>* Pickup Date</b></label>
-                  <select> name="pickupdate" id="pickupdate">
-                    <option value="phone">N/A</option>
+                  <label for="pick"><b>* Pickup Date</b></label>
+                  <select name="pickupdate" id="pickupdate" >
+
+                  <?PHP 
+                  $zipcode =  $_SESSION['zip'];
+                  $dates = "Select pickup.Pickup_dates as PU from pickup where pickup.Zip_code='$zipcode' order by Pickup_dates limit 6";
+                  $result = mysqli_query($conn,$dates);
+                  echo "<option value='' disabled selected>Select a date</option> ";
+                  while($row = mysqli_fetch_array($result)) 
+                  {        
+                  echo "<option value='".$row['PU']."'>".$row['PU']."</option>"; 
+                  }
+
+                  ?>
                   </select>
+
+
+                  
+
             <p>
             <!-- Size of Donation List (Droplist) -->
             <p>
-                  <label for="donationsize"><b>* Size of Donation</b></label>
-                  <select> name="donationsize" id="donationsize">
+                  <label for="donation"><b>* Size of Donation</b></label>
+                  <select name="donationsize" id="donationsize">
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>                    

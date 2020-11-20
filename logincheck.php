@@ -55,9 +55,11 @@ if ($email == "admin@charitydrop.com" && $password = "admin")
 
 else if ($check==1)
 	{
+		$_SESSION['Login Fail'] = 0;
 		header('Location:personal_information_form.php');
 	}
 else {
+		$_SESSION['Login Fail'] = 1;
 		header('Location:login_page.php');
 		#have to give an error statement in this
 

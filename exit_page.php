@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$servername = "localhost";
+$username = "root";
+$password2 = "";
+$dbname = "software";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password2,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start()
+?>
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Exit Page</title>
@@ -60,7 +76,34 @@
       <div id="u69" class="ax_default heading_2">
         <div id="u69_div" class=""></div>
         <div id="u69_text" class="text ">
-          <p style="text-align:left;"><span>Your donation has been successfully scheduled.</span></p><p style="text-align:center;"><span>Your receipt is below</span></p>
+          <p style="text-align:left;"><span>Your donation has been successfully scheduled.</span></p><p style="text-align:center;"><span>Your receipt is below
+          <?PHP 
+
+          $ID= $_SESSION['rand'];
+          $receipt = "Select updatepickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID  inner join updatepickup on updatepickup.ID=forms.ID where forms.ID='$ID';";
+          $result = mysqli_query($conn,$receipt);
+
+          $row = mysqli_fetch_array($result);
+
+
+
+          echo "<br><br>";
+          echo "Date of Pickup: " . " " . $row[0] . "<br>";
+          echo "Receipt No: " . " " . $row[1] . "<br>";
+          echo "Name: " . " " . $row[2] . " " . $row[3] . "<br>";
+          echo "City: " . " " . $row[4] . "<br>";
+          echo "Zip Code: " . " " . $row[5] . "<br>";
+          echo "Address: " . " " . $row[6] . "<br>";
+          echo "Phone_Number: " . " " . $row[7] . "<br>";
+          echo "Size of Donation: " . " " . $row[8] . "<br>";
+          echo "Location of Donation: " . " " . $row[9] . "<br>";
+        
+
+        
+        ?>
+          
+          
+          </span></p>
         </div>
       </div>
 
@@ -71,14 +114,8 @@
           <p></p>
         </div>
       </div>
+      
 
-      <!-- Unnamed (Placeholder) -->
-      <div id="u71" class="ax_default placeholder">
-        <img id="u71_img" class="img " src="images/exit_page/u71.svg"/>
-        <div id="u71_text" class="text " style="display:none; visibility: hidden">
-          <p></p>
-        </div>
-      </div>
 
       <!-- Unnamed (Rectangle) -->
       <div id="u72" class="ax_default button">

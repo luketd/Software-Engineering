@@ -18,8 +18,13 @@ Select IF(password=4321,TRUE,FALSE) from login where Email="matt@gmail.com" ;
 ##INSERT email and password, put email and password as variables
 INSERT INTO login (Email, password) VALUES("testing@gmail.com", "password");
 
+SELECT if(Email="matt@gmail.com", 1,0) from login where Email="matt@gmail.com";
+
 #########################################
 #Forms Queries
+
+SELECT if(ID="1234", 1,0) from forms where ID="1234";
+
 
 #Forms, all Values are variables
 INSERT into forms (ID, Email, First_name, Last_name, Contact_method, City, Zip_code, Cross_Street, Suite_Apartment_num, Address,Phone_Number)
@@ -43,7 +48,8 @@ Select Zip_code from forms where ID=1234;
 Select pickup.Pickup_dates from pickup where pickup.Zip_code=8077 and InUse IS null order by Pickup_dates limit 6;
 
 #Update schedule when pickup is chosen
-UPDATE pickup set InUse=1 and ID="1234" where Pickup_dates="11/2/2020" and Zip_code=8077;
+UPDATE pickup set InUse=1 , ID="1237" where Pickup_dates='12/2/2020' and Zip_code=8056;
 
 
+Select pickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID inner join pickup on pickup.ID=forms.ID where pickup.InUse=1 ORDER BY pickup.Pickup_dates;
 
