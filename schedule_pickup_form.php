@@ -45,7 +45,6 @@
       $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
     </script>
   </head>
-  <?php $_SESSION['rand'] = rand ( int $min , int $max ) : int;?> ?>
   <body>
     <div id="base" class="">
 

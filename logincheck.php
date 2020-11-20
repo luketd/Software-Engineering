@@ -1,15 +1,39 @@
-<?php session_start() ?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password2 = "";
+$dbname = "software";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password2,$dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start()
+?> 
 
 
 
 
 <?php 
 
-$email= isset($_POST['email']) ? $_POST['email'] : "";
+$email= isset($_POST['uEmail']) ? $_POST['uEmail'] : "";
 $password= isset($_POST['password']) ? $_POST['password'] : "";
 
-echo $email;
-echo $password;
+
+$sql = "Select IF(password='$password',TRUE,FALSE) from login where email='$email' ;";
+
+$result = mysqli_query($conn,$sql);
+
+$row = mysqli_fetch_array($result);
+
+$check = $row[0];
+mysqli_close($conn);
+
+#echo $email;
+#echo $password;
 
 /*
 if $email = admin@charitydrop.com | $password = admin
@@ -19,7 +43,7 @@ else
 	personal_information_form.php
 	*/
 
-if ($email == "admin@charitydrop.com")
+if ($email == "admin@charitydrop.com" && $password = "admin")
 	{
 		header('Location:admin_page.php');
 		
@@ -29,10 +53,15 @@ if ($email == "admin@charitydrop.com")
 
 
 
-else
+else if ($check==1)
 	{
 		header('Location:personal_information_form.php');
 	}
+else {
+		header('Location:login_page.php');
+		#have to give an error statement in this
+
+}
 
 
 

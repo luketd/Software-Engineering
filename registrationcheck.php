@@ -1,9 +1,19 @@
-<?php session_start() ?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "software";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
 
-
-
-<?php 
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+session_start() 
+?>
+<?PHP
 
 $emailreg= isset($_POST['emailreg']) ? $_POST['emailreg'] : "";
 $passwordreg= isset($_POST['passwordreg']) ? $_POST['passwordreg'] : "";
@@ -24,6 +34,13 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($passwordr
     //echo 'Strong password.';
     if ($passwordreg == $passwordregconfirm)
 	{
+		$insertLogin = "INSERT INTO login (email,password) VALUES('$emailreg','$passwordreg' )";
+		if(mysqli_query($conn, $insertLogin)){
+			echo "Records inserted successfully.";
+		} else{
+			echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+		}
+		mysqli_close($conn);
 		header('Location:login_page.php');
 		
 	}
@@ -39,11 +56,6 @@ else
 }
 
 ##end of password check
-
-
-
-
-
 
 
  ?>

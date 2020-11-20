@@ -43,7 +43,7 @@ Select Zip_code from forms where ID=1234;
 Select pickup.Pickup_dates from pickup where pickup.Zip_code=8077 and InUse IS null order by Pickup_dates limit 6;
 
 #Update schedule when pickup is chosen
-UPDATE pickup set InUse=1 where Pickup_dates="11/2/2020" and Zip_code=8077;
+UPDATE pickup set InUse=1 and ID="1234" where Pickup_dates="11/2/2020" and Zip_code=8077;
 
 
 

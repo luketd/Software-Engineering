@@ -1,3 +1,23 @@
+<?PHP session_start()  ?>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+
+$rand = rand (1000,  10000 );
+$_SESSION['rand'] = $rand;
+echo $_SESSION['rand'];
+
+?>       
 <!DOCTYPE html>
 <html>
   <head>
@@ -57,13 +77,8 @@
       </div>
 
 
-      <?php 
-
       
-
-      $_SESSION['rand'] = rand ( int $min , int $max ) : int;?>
-
-
+   
       <!-- Unnamed (Rectangle)
       <div id="u11" class="ax_default label">
         <div id="u11_div" class=""></div>
