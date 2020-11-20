@@ -108,7 +108,7 @@
         }
 
         function cleartrace_click(event) {
-            $('#traceDiv').html('');
+            $('#traceDiv').php('');
         }
 
         function starttrace_click(event) {
@@ -164,7 +164,7 @@
         pageNotesUi += "<div id='traceDiv'></div></div>";
         pageNotesUi += "</div></div>";
 
-        $('#debugHost').html(pageNotesUi);
+        $('#debugHost').php(pageNotesUi);
         $('#traceEmptyState').show();
     }
 

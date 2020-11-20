@@ -25,8 +25,8 @@
                 url: '/RecordController/ListRecordings',
                 success: function(response) {
 
-                    $('#recordNameHeader').html("");
-                    $('#recordPlayContent').html("");
+                    $('#recordNameHeader').php("");
+                    $('#recordPlayContent').php("");
                     //populate the notes 
                     
                     axRecordingList = [];
@@ -370,7 +370,7 @@
         recordPlayUi += "<li class='recordingNode recordingExpandableNode'>";
         recordPlayUi += '<div class="recordingContainer" style="margin-left:15px">';
         recordPlayUi += '<a class="recordingPlusMinusLink"><span class="recordingMinus"></span></a>';
-        recordPlayUi += '<a class="recordingPageLink" nodeurl="home.html">';
+        recordPlayUi += '<a class="recordingPageLink" nodeurl="home.php">';
         recordPlayUi += '<span class="recordingPageIcon"></span>';
         recordPlayUi += '<span class="recordingPageName">' + axRecording['recordingName'] + '</span>';
         recordPlayUi += '</a>';
@@ -473,7 +473,7 @@
         recordPlayUi += "<div id='recordingContainer'><li class='recordingNode recordingRootNode'></li></div>";
         recordPlayUi += "</div>";
 
-        $('#recordPlayHost').html(recordPlayUi);
+        $('#recordPlayHost').php(recordPlayUi);
     };
 
 })();   

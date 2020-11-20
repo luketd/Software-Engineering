@@ -74,20 +74,20 @@ var openPreviousPage = $axure.player.openPreviousPage = function () {
             currentPageHashString = '#p=' + currentNodeUrl.substr(0, currentNodeUrl.lastIndexOf('.'));
 
             $axure.player.setVarInCurrentUrlHash(PAGE_ID_NAME, $axure.player.getPageIdByUrl(currentNodeUrl));
-            $axure.player.setVarInCurrentUrlHash(PAGE_URL_NAME, currentNodeUrl.substring(0, currentNodeUrl.lastIndexOf('.html')));
+            $axure.player.setVarInCurrentUrlHash(PAGE_URL_NAME, currentNodeUrl.substring(0, currentNodeUrl.lastIndexOf('.php')));
 
             $('#sitemapTreeContainer').find('.sitemapHighlight').removeClass('sitemapHighlight');
             var $currentNode = $('.sitemapPageLink[nodeUrl="' + currentNodeUrl + '"]');
             $currentNode.parent().parent().addClass('sitemapHighlight');
 
             var pageName = $axure.page.pageName;
-            $('.pageNameHeader').html(pageName);
+            $('.pageNameHeader').php(pageName);
 
             if ($currentNode.length > 0 && pageCount > 1) {
                 var currentNode = $currentNode[0];
                 var currentNum = $('.sitemapPageLink').index(currentNode) + 1;
-                $('.pageCountHeader').html('(' + currentNum + ' of ' + pageCount + ')');
-            } else $('.pageCountHeader').html('');
+                $('.pageCountHeader').php('(' + currentNum + ' of ' + pageCount + ')');
+            } else $('.pageCountHeader').php('');
 
             //If highlight var is present and set to 1 or else if
             //sitemap highlight button is selected then highlight interactive elements
@@ -436,7 +436,7 @@ var openPreviousPage = $axure.player.openPreviousPage = function () {
             viewString = viewName + ' (' + widthString + ' x any)';
         }
 
-        $('.adaptiveViewHeader').html(viewString);
+        $('.adaptiveViewHeader').php(viewString);
     }
 
     $axure.player.selectScaleOption = function (scaleVal) {
@@ -519,7 +519,7 @@ var openPreviousPage = $axure.player.openPreviousPage = function () {
             treeUl += "</div>";
         }
 
-        $('#sitemapHost').html(treeUl);
+        $('#sitemapHost').php(treeUl);
     }
 
     function generateNode(node, level) {
@@ -543,7 +543,7 @@ var openPreviousPage = $axure.player.openPreviousPage = function () {
         if(isFolder) { returnVal += " sitemapFolderIcon"; }
 
         returnVal += "'></span><span class='sitemapPageName'>";
-        returnVal += $('<div/>').text(node.pageName).html();
+        returnVal += $('<div/>').text(node.pageName).php();
         returnVal += "</span>";
         if(!isFolder) returnVal += "</a>";
         returnVal += "</div></div>";

@@ -147,7 +147,7 @@
 
             var hasNotes = false;
 
-            $('#pageNotesContent').html("");
+            $('#pageNotesContent').php("");
             hasNotes = populateNotes($axure.page);
             
             if(hasNotes) $('#pageNotesEmptyState').hide();
@@ -281,7 +281,7 @@
         
         var $dialog = $('<div class="notesDialog"></div>')
             .appendTo('#notesOverlay')
-            .html(getWidgetNotesHtml(id, page));     
+            .php(getWidgetNotesHtml(id, page));     
 
         $dialog.css({ 'left': left, 'top': top, 'z-index': maxZIndex });
 
@@ -464,7 +464,7 @@
         pageNotesUi += "<span id='pageNotesContent'></span>";
         pageNotesUi += "</div></div>";
 
-        $('#pageNotesHost').html(pageNotesUi);
+        $('#pageNotesHost').php(pageNotesUi);
 
         if(!$axure.document.configuration.showAnnotations) {
             $('#pageNotesHost .pageNameHeader').css('padding-right', '55px');
