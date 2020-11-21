@@ -13,8 +13,6 @@ if ($conn->connect_error) {
 }
 session_start()
 ?> 
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -92,39 +90,27 @@ session_start()
         </div>
       </div>
 
-      <!-- Unnamed (Text Field) -->
-      <div id="u39" class="ax_default text_field">
-        <div id="u39_div" class=""></div>
-        <input id="u39_input" type="file" value="" class="u39_input"/>
-      </div>
+      
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u40" class="ax_default heading_1">
-        <div id="u40_div" class=""></div>
-        <div id="u40_text" class="text ">
-          <p><span>Enter your schedule.csv onto the site</span></p>
-        </div>
-      </div>
+      
 
       <!-- Unnamed (Rectangle) -->
       <div id="u41" class="ax_default heading_1">
         <div id="u41_div" class=""></div>
         <div id="u41_text" class="text ">
-          <p><span>Admin Portal
-          
-          </span></p>
+          <p><span>Admin Portal </span></p>
         </div>
       </div>
+          <p>
+        
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u29" class="ax_default heading_3">
-        <div id="u29_div" class=""></div>
-        <div id="u29_text" class="text ">
-          <p><span>Please fill out all required fields (marked with *)</span></p><p><span>Once you fill out everything on the form, then click the submit form button to move onto the next page</span></p>
+
+
+          <br><br><br><br><br><br><br><br><br><br><br><br>
           <?PHP 
-          $filltable = "Select updatepickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID  inner join updatepickup on updatepickup.ID=forms.ID;";;
+          $filltable = "Select updatepickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID  inner join updatepickup on updatepickup.ID=forms.ID ORDER BY updatepickup.Pickup_dates ;";;
           
-          echo '<table border="0" cellspacing="2" cellpadding="2"> 
+          echo '<table border="10" cellspacing="6" cellpadding="4"> 
                   <tr> 
                       <td> <font face="Arial">Date of Pickup</font> </td> 
                       <td> <font face="Arial">User ID</font> </td> 
@@ -168,22 +154,62 @@ session_start()
             } 
             ?>
             </p>
-
         </div>
       </div>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u42" class="ax_default button">
-        <div id="u42_div" class=""></div>
-        <div id="u42_text" class="text ">
-          <p><span>Upload your CSV</span></p>
-        </div>
-      </div>
 
-    </div>
+     
     <p>
-    
 
+
+    <!-- Unnamed (Rectangle) -->
+
+    <div id="u40" class="ax_default heading_1">
+        <div id="u40_div" class=""></div>
+        <div id="u40_text" class="text ">
+            <?PHP 
+
+            
+            if (empty($_SESSION['accept'])) {
+            }
+            else {
+              if ($_SESSION['accept'] == 0) {
+                echo "<p style='color:red;'> Uploaded CSV Failed </p>";
+              }
+              if ($_SESSION['accept'] == 1) {
+                echo "<p style='color:green;'> Uploaded CSV Sucessfuly </p>";
+              }
+
+            }
+            
+            if (empty($_SESSION['nocsv'])) {
+            }
+            else{
+              if ($_SESSION['nocsv'] == 1) {
+                echo "<p style='color:red;'> NOT CSV EXTENSION </p>";
+              }
+            }
+
+            ?>
+
+
+        <form action="adminCheck.php" enctype='multipart/form-data' action='' method='post'>
+		
+    <label>Upload Product CSV files</label>
+     <br>
+    <input size='100' type='file' name='filename'>
+    </br>
+    <input type='submit' name='submit' value='Upload Products'>
+     
+    </form>
+        </div>
+      </div>
+
+            
+    </div>
+   
+
+    </p>
     <script src="resources/scripts/axure/ios.js"></script>
 
 
@@ -191,3 +217,4 @@ session_start()
   </body>
   
 </html>
+

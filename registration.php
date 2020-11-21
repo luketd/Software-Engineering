@@ -131,24 +131,36 @@ session_start()
             </div>
             <div style = "position: relative; left:415px; top:350px; font-size: 20px">
             <p>
-                  <?PHP
-                if ($_SESSION['Same Email'] == 1)    {
-                  echo "<i><p style=color:red; font-size:8px;>";
-                    echo "The Email you entered is already registered"; 
-                  echo "</i></p>";
-                } 
-                if ($_SESSION['pass'] == 1 ){
-                  echo "<i><p style=color:red; font-size:8px;>";
-                    echo "Your password requires one Uppercase Letter,<br>a Number, a Special Character, and atleast 8 characters long"; 
-                  echo "</i></p>";
+              <?PHP
+                  if (empty($_SESSION['Same Email'])){
+                  }else {
+                    if ($_SESSION['Same Email'] == 1)    {
+                      echo "<i><p style=color:red; font-size:8px;>";
+                        echo "The Email you entered is already registered"; 
+                      echo "</i></p>";
+                    }
+                  }
+                  if(empty($_SESSION['pass'])){
+                  } else {
+                    if ($_SESSION['pass'] == 1 ){
+                      echo "<i><p style=color:red; font-size:8px;>";
+                        echo "Your password requires one Uppercase Letter,<br>a Number, a Special Character, and atleast 8 characters long"; 
+                      echo "</i></p>";
+                    }
+                  }
+                  if(empty($_SESSION['wrong'])){
+                  } else {
+                    if ($_SESSION['wrong'] == 1 ){
+                      echo "<i><p style=color:red; font-size:8px;>";
+                        echo "Your passwords must be the same"; 
+                      echo "</i></p>";
+    
+                    } 
 
-                }
-                if ($_SESSION['wrong'] == 1 ){
-                  echo "<i><p style=color:red; font-size:8px;>";
-                    echo "Your passwords must be the same"; 
-                  echo "</i></p>";
-
-                }    
+                  }
+                 
+                
+                   
                 
                 ?>
 
@@ -180,31 +192,6 @@ session_start()
             <p>
             </div>
           </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <!-- Unnamed (Rectangle) -->
       <div id="u81" class="ax_default heading_1">

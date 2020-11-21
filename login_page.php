@@ -143,11 +143,17 @@ session_start()
           <p><span>Enter your Email and Password</span></p><p><span>to schedule a donation <br> 
           
           <?PHP
-          if ($_SESSION['Login Fail'] == 1)    {
-            echo "<i><p style=color:red; font-size:8px;>";
-               echo "You entered your Email or Password inccorectly"; 
-            echo "</i></p>";
-          }      
+          if (empty($_SESSION['Login Fail'])){
+
+          } else {
+            if ($_SESSION['Login Fail'] == 1)    {
+              echo "<i><p style=color:red; font-size:8px;>";
+                 echo "You entered your Email or Password inccorectly"; 
+              echo "</i></p>";
+            } 
+
+          }
+               
           
           ?>
           

@@ -189,9 +189,11 @@ if ($conn->connect_error) {
             <p>
                   <label for="donation"><b>* Size of Donation</b></label>
                   <select name="donationsize" id="donationsize">
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>                    
+                    <option value='' disabled selected>Size of donation</option>
+                    <option value="small">Small(1-3 Bags/Boxes)</option>
+                    <option value="medium">Medium((4-10 Bags/Boxes)</option>
+                    <option value="large">Large(11-24 Bags/Boxes)</option>    
+                    <option value="large">Extra Large(25+ Bags/Boxes)</option>                      
                   </select>
             <p>
             <p>

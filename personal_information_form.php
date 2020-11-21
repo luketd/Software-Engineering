@@ -284,6 +284,7 @@ $_SESSION['rand'] = $rand;
             <p>
                   <label for="prefcontact"><b>* Preferred Contact Method</b></label>
                   <select name="contactmethod" id="contactmethod">
+                   <option value='' disabled selected>Select One</option>
                     <option value="phone">Phone</option>
                     <option value="email">Email</option>
                   </select>
