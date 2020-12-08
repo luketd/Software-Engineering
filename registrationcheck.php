@@ -20,7 +20,9 @@ $passwordreg= isset($_POST['passwordreg']) ? $_POST['passwordreg'] : "";
 $passwordregconfirm= isset($_POST['passwordregconfirm']) ? $_POST['passwordregconfirm'] : "";
 
 ##validate password strength
-
+$_SESSION['pass'] = 0;
+$_SESSION['wrong'] = 0;
+$_SESSION['Same Email'] = 0;
 $uppercase = preg_match('@[A-Z]@', $passwordreg);
 $lowercase = preg_match('@[a-z]@', $passwordreg);
 $number    = preg_match('@[0-9]@', $passwordreg);

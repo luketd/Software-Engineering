@@ -1,12 +1,13 @@
-<?PHP session_start()  ?>
-<?php
+<?PHP
+session_start() ;
 $servername = "localhost";
 $username = "root";
 $password = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
-
+?>
+<?PHP
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -78,101 +79,7 @@ $_SESSION['rand'] = $rand;
 
       
    
-      <!-- Unnamed (Rectangle)
-      <div id="u11" class="ax_default label">
-        <div id="u11_div" class=""></div>
-        <div id="u11_text" class="text ">
-          <p><span>* First name</span></p>
-        </div>
-      </div>-->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u12" class="ax_default label">
-        <div id="u12_div" class=""></div>
-        <div id="u12_text" class="text ">
-          <p><span>* Last name</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u13" class="ax_default label">
-        <div id="u13_div" class=""></div>
-        <div id="u13_text" class="text ">
-          <p><span>* Preferred Contact Method</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u14" class="ax_default label">
-        <div id="u14_div" class=""></div>
-        <div id="u14_text" class="text ">
-          <p><span>* City</span></p><p><span><br></span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u15" class="ax_default label">
-        <div id="u15_div" class=""></div>
-        <div id="u15_text" class="text ">
-          <p><span>* Zip Code</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u16" class="ax_default label">
-        <div id="u16_div" class=""></div>
-        <div id="u16_text" class="text ">
-          <p><span>Cross/Street</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle)
-      <div id="u17" class="ax_default label">
-        <div id="u17_div" class=""></div>
-        <div id="u17_text" class="text ">
-          <p><span>Suite/Apartment #</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u18" class="ax_default label">
-        <div id="u18_div" class=""></div>
-        <div id="u18_text" class="text ">
-          <p><span>* Address</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u19" class="ax_default label">
-        <div id="u19_div" class=""></div>
-        <div id="u19_text" class="text ">
-          <p><span>* Phone Number</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u20" class="ax_default text_field">
-        <div id="u20_div" class=""></div>
-        <input id="u20_input" type="text" value="" class="u20_input"/>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u21" class="ax_default text_field">
-        <div id="u21_div" class=""></div>
-        <input id="u21_input" type="text" value="" class="u21_input"/>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u22" class="ax_default text_field">
-        <div id="u22_div" class=""></div>
-        <input id="u22_input" type="text" value="" class="u22_input"/>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u23" class="ax_default text_field">
-        <div id="u23_div" class=""></div>
-        <input id="u23_input" type="text" value="" class="u23_input"/>
-      </div> -->
+     
 
       <!-- Unnamed (Rectangle) -->
       <div id="u24" class="ax_default heading_3">
@@ -182,48 +89,34 @@ $_SESSION['rand'] = $rand;
         </div>
       </div>
 
-      <!-- Unnamed (Text Field) 
-      <div id="u25" class="ax_default text_field">
-        <div id="u25_div" class=""></div>
-        <input id="u25_input" type="tel" value="" class="u25_input"/>
-      </div> -->
-
-      <!-- Unnamed (Droplist) 
-      <div id="u26" class="ax_default droplist">
-        <div id="u26_div" class=""></div>
-        <select id="u26_input" class="u26_input">
-          <option class="u26_input_option" value="Phone">Phone</option>
-          <option class="u26_input_option" value="Email">Email</option>
-        </select>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-        <div id="u27" class="ax_default text_field">
-        <div id="u27_div" class=""></div>
-        <input id="u27_input" type="text" value="" class="u27_input"/>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u28" class="ax_default text_field">
-        <div id="u28_div" class=""></div>
-        <input id="u28_input" type="text" value="" class="u28_input"/>
-      </div> -->
-
+    
       <!-- Unnamed (Rectangle) -->
       <div id="u29" class="ax_default heading_3">
         <div id="u29_div" class=""></div>
         <div id="u29_text" class="text ">
-          <p><span>Please fill out all required fields (marked with *)</span></p><p><span>Once you fill out everything on the form, then click the submit form button to move onto the next page</span></p>
+        
+          <?php
+          if (empty($_SESSION['TEST']) == 1) {
+          } else {
+            echo "<p style='color:red;'> ";
+            echo  "One of Address, City, or Zip Code not valid";
+            echo "</p>";
+          }
+          
+          ?>
+        
+
+          <p><span>Please fill out all required fields (marked with *)</span></p><p><span>Once you fill out everything on the form, then click the submit form button to move onto the next page
+          </span>
+          
+          
+          </p>
         </div>
       </div>
 
-      <!-- Unnamed (Rectangle) 
-      <div id="u30" class="ax_default button">
-        <div id="u30_div" class=""></div>
-        <div id="u30_text" class="text ">
-          <p><span>Submit Form</span></p>
-        </div>
-      </div> -->
+
+      <br><br> <br><br>
+      
 
       <!-- Unnamed (Rectangle) -->
       <div id="u31" class="ax_default heading_1">
@@ -233,15 +126,6 @@ $_SESSION['rand'] = $rand;
         </div>
       </div>
 
-      <!-- Unnamed (Text Field) 
-      <div id="u32" class="ax_default text_field">
-        <div id="u32_div" class=""></div>
-        <input id="u32_input" type="text" value="" class="u32_input"/>
-      </div> -->
-
-
-
-          <!-- AIDAN WORK BEGIN -->
 
 
 
@@ -296,8 +180,6 @@ $_SESSION['rand'] = $rand;
             <p>
             </div>
           </form>
-
-          <!-- AIDAN WORK END -->
 
 
       <!-- Unnamed (Rectangle) -->

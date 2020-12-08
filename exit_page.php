@@ -117,14 +117,7 @@ session_start()
       
 
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u72" class="ax_default button">
-        <div id="u72_div" class=""></div>
-        <div id="u72_text" class="text ">
-          <p><span>Download Receipt</span></p>
-        </div>
-      </div>
-    </div>
+
     <script src="resources/scripts/axure/ios.js"></script>
   </body>
 </html>

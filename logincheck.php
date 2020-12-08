@@ -45,6 +45,8 @@ else
 
 if ($email == "admin@charitydrop.com" && $password = "admin")
 	{
+		$_SESSION['accept'] = 0;
+        $_SESSION['nocsv'] = 0;
 		header('Location:admin_page.php');
 		
 	}
@@ -56,6 +58,7 @@ if ($email == "admin@charitydrop.com" && $password = "admin")
 else if ($check==1)
 	{
 		$_SESSION['Login Fail'] = 0;
+		$_SESSION['TEST'] = 0;
 		header('Location:personal_information_form.php');
 	}
 else {

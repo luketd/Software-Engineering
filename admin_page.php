@@ -108,7 +108,7 @@ session_start()
 
           <br><br><br><br><br><br><br><br><br><br><br><br>
           <?PHP 
-          $filltable = "Select updatepickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID  inner join updatepickup on updatepickup.ID=forms.ID ORDER BY updatepickup.Pickup_dates ;";;
+          $filltable = "Select updatepickup.Pickup_dates, forms.ID, forms.First_name, forms.Last_name, forms.City, forms.Zip_code, forms.Address, forms.Phone_number, info.Size_of_donation, info.Location from forms inner join additional_info as info on info.ID=forms.ID  inner join updatepickup on updatepickup.ID=forms.ID ORDER BY updatepickup.Pickup_dates asc;";;
           
           echo '<table border="10" cellspacing="6" cellpadding="4"> 
                   <tr> 
