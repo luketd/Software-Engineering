@@ -64,37 +64,21 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($passwordr
 			} else{
 				echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 			}
-		
-
 		}
 		else {
 			$_SESSION['Same Email'] = 1;
 			$_SESSION['wrong'] = 0;
 			$_SESSION['pass'] = 0;
 			header('Location:registration.php');
-
-		}
-
-		
-
-		
-		
+		}	
 	}
-
-
-
-
-
 else
 	{
 		$_SESSION['pass'] = 1;
 		header('Location:registration.php');
 	}
 }
-
 ##end of password check
-
-
  ?>
 
 

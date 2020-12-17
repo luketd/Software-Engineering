@@ -65,56 +65,6 @@ session_start()
   <body>
     <div id="base" class="">
 
-      <!-- username (Text Field) 
-      <div id="u73" class="ax_default text_field" data-label="username">
-        <div id="u73_div" class=""></div>
-        <input id="u73_input" type="email" value="" class="u73_input"/>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u74" class="ax_default text_field">
-        <div id="u74_div" class=""></div>
-        <input id="u74_input" type="password" value="" class="u74_input"/>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u75" class="ax_default label">
-        <div id="u75_div" class=""></div>
-        <div id="u75_text" class="text ">
-          <p><span>Email:</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) -
-      <div id="u76" class="ax_default label">
-        <div id="u76_div" class=""></div>
-        <div id="u76_text" class="text ">
-          <p><span>Password:</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u77" class="ax_default button">
-        <div id="u77_div" class=""></div>
-        <div id="u77_text" class="text ">
-          <p><span>Register</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Text Field) 
-      <div id="u78" class="ax_default text_field">
-        <div id="u78_div" class=""></div>
-        <input id="u78_input" type="password" value="" class="u78_input"/>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u79" class="ax_default label">
-        <div id="u79_div" class=""></div>
-        <div id="u79_text" class="text ">
-          <p><span>Confirm Password:</span></p>
-        </div>
-      </div> -->
-
       <!-- Unnamed (Image) -->
       <div id="u80" class="ax_default image">
         <img id="u80_img" class="img " src="images/login_page/u8.png"/>
@@ -158,10 +108,6 @@ session_start()
                     } 
 
                   }
-                 
-                
-                   
-                
                 ?>
 
             </p>

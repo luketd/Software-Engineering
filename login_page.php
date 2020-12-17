@@ -124,7 +124,6 @@ session_start()
 										Sign Up 
 								</button> 
 					</div>
-					<!-- AIDAN WORK END-->
 
 
 

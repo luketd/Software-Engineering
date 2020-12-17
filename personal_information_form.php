@@ -102,10 +102,7 @@ $_SESSION['rand'] = $rand;
             echo  "One of Address, City, or Zip Code not valid";
             echo "</p>";
           }
-          
           ?>
-        
-
           <p><span>Please fill out all required fields (marked with *)</span></p><p><span>Once you fill out everything on the form, then click the submit form button to move onto the next page
           </span>
           
@@ -113,11 +110,7 @@ $_SESSION['rand'] = $rand;
           </p>
         </div>
       </div>
-
-
-      <br><br> <br><br>
-      
-
+      <br><br><br><br>
       <!-- Unnamed (Rectangle) -->
       <div id="u31" class="ax_default heading_1">
         <div id="u31_div" class=""></div>
@@ -125,9 +118,6 @@ $_SESSION['rand'] = $rand;
           <p><span>Personal Information Form</span></p>
         </div>
       </div>
-
-
-
 
           <form action="personalinformationcheck.php" method="post">
             <div class="imgcontainer">

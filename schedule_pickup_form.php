@@ -91,54 +91,6 @@ if ($conn->connect_error) {
         </div>
       </div>
 
-      <!-- Unnamed (Rectangle) 
-      <div id="u53" class="ax_default heading_3">
-        <div id="u53_div" class=""></div>
-        <div id="u53_text" class="text ">
-          <p><span>Please fill out all required fields (marked with *)</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u54" class="ax_default label">
-        <div id="u54_div" class=""></div>
-        <div id="u54_text" class="text ">
-          <p><span>* Pickup Date</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u55" class="ax_default label">
-        <div id="u55_div" class=""></div>
-        <div id="u55_text" class="text ">
-          <p><span>* Size of Donation</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u56" class="ax_default label">
-        <div id="u56_div" class=""></div>
-        <div id="u56_text" class="text ">
-          <p><span>* Location of Items</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u57" class="ax_default label">
-        <div id="u57_div" class=""></div>
-        <div id="u57_text" class="text ">
-          <p><span>* How did you hear about us?</span></p>
-        </div>
-      </div> -->
-
-      <!-- Unnamed (Rectangle) 
-      <div id="u58" class="ax_default label">
-        <div id="u58_div" class=""></div>
-        <div id="u58_text" class="text ">
-          <p><span>Additional Comments</span></p>
-        </div>
-      </div> -->
-
       <!-- Unnamed (Image) -->
       <div id="u65" class="ax_default image">
         <img id="u65_img" class="img " src="images/login_page/u8.png"/>

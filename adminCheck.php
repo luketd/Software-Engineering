@@ -15,6 +15,7 @@ session_start()
 ?> 
 <?PHP 
 
+//get array of valid csv's
 $mimes = array(
     'text/csv',
     'text/plain',
@@ -28,14 +29,17 @@ $mimes = array(
     'application/txt',
 );
 
+
 if (isset($_POST['submit'])) 
 {
+    //get the path extension
     $info = pathinfo($_FILES['filename']['name']);
 
+    //if extension is in csv
     if($info['extension'] == 'csv') {
-        echo "CSV confirmed";
         $handle = fopen($_FILES['filename']['tmp_name'], "r");
         $headers = fgetcsv($handle, 1000, ",");
+        //Read file in
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) 
         {
             if ($data[0] == ''){

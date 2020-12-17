@@ -15,9 +15,7 @@ if ($conn->connect_error) {
 ?>
 
 <?php 
-
-
-
+$Email= $_SESSION['email'];
 $ID= $_SESSION['rand'];
 $firstname= isset($_POST['firstname']) ? $_POST['firstname'] : "";
 $lastname= isset($_POST['lastname']) ? $_POST['lastname'] : "";
@@ -29,6 +27,7 @@ $zipcode= isset($_POST['zipcode']) ? $_POST['zipcode'] : "";
 $phonenumber= isset($_POST['phonenumber']) ? $_POST['phonenumber'] : "";
 $contactmethod= isset($_POST['contactmethod']) ? $_POST['contactmethod'] : "";
 
+//For the API request
 $request_doc_template = <<<EOT
 <?xml version="1.0"?>
 <AddressValidateRequest USERID="569NA0004253">
@@ -49,27 +48,25 @@ $doc_string = preg_replace('/[\t\n]/', '', $request_doc_template);
 $doc_string = urlencode($doc_string);
 
 $url = "http://production.shippingapis.com/ShippingAPI.dll?API=Verify&XML=" . $doc_string;
-#echo $url . "\n\n";
 
 // perform the get
 $response = file_get_contents($url);
 
 $xml=simplexml_load_string($response) or die("Error: Cannot create object");
-#print_r($xml);
+
 
 $error = $xml->Address->Error->Description;
 
+//If it throws an error, then it goes back to the page and throws an error
 if (empty($error) == FALSE || strlen($zipcode) != 5){
 	$_SESSION['TEST'] = 1;
 	header('Location:personal_information_form.php');
 } else {
 
-
-
-
-
+	//Get the zip code for future use
 $_SESSION['zip'] = $zipcode;
 
+//check if suite or cross is empty, and fill it
 if(empty($suite)){
 	$suite="0";
 }
@@ -77,14 +74,11 @@ if(empty($cross)){
 	$cross="0";
 } 
 
-#echo $contactmethod;
+//insert query to database
+$insertLogin = "INSERT into forms (Email,ID, First_name, Last_name, Contact_method, City, Zip_code, Cross_Street, Suite_Apartment_num, Address,Phone_number)
+VALUES('$Email', '$ID', '$firstname', '$lastname', '$contactmethod', '$city', '$zipcode', $cross, $suite, '$address', '$phonenumber' );";
 
-
-$insertLogin = "INSERT into forms (ID, First_name, Last_name, Contact_method, City, Zip_code, Cross_Street, Suite_Apartment_num, Address,Phone_number)
-VALUES('$ID', '$firstname', '$lastname', '$contactmethod', '$city', '$zipcode', $cross, $suite, '$address', '$phonenumber' );";
-
-#echo $insertLogin;
-
+//If it is sucsessful, then go to the next page
 if(mysqli_query($conn, $insertLogin)){
 	echo "Records inserted successfully.";
 } else{
